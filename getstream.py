@@ -9,7 +9,7 @@ class GetStream():
         self.channel_id = "UCe3yFIa92jfAHEu4Ql4u69A"
 
     # Issue a search for a live video event on the users channel
-    @retry(wait_exponential_multiplier=1000, wait_exponential_max=10000)
+    @retry(wait_exponential_multiplier=1000, wait_exponential_max=10000, stop_max_delay=30000)
     def stream_status(self):
 
         list_streams_request = self.youtube.search().list(

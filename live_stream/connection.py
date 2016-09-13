@@ -25,7 +25,7 @@ class GoogleConnection():
         #   https://developers.google.com/youtube/v3/guides/authentication
         # For more information about the client_secrets.json file format, see:
         #   https://developers.google.com/api-client-library/python/guide/aaa_client_secrets
-        self.CLIENT_SECRETS_FILE = ".config/client_secrets.json"
+        self.CLIENT_SECRETS_FILE = "../.config/client_secrets.json"
 
         # This OAuth 2.0 access scope allows for read-only access to the authenticated
         # user's account, but not other types of account access.
@@ -59,6 +59,7 @@ class GoogleConnection():
                                        message=self.MISSING_CLIENT_SECRETS_MESSAGE)
 
         storage = Storage("%s-oauth2.json" % sys.argv[0])
+
         credentials = storage.get()
 
         if credentials is None or credentials.invalid:

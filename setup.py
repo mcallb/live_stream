@@ -1,11 +1,13 @@
 from setuptools import setup
 
-setup(name='live_stream',
-      version='0.1',
-      description='Monitors a Youtube live stream',
-      url='https://github.com/mcallb/live_stream',
-      author='Brian McAllister',
-      author_email='mcallb@gmail.com',
-      license='MIT',
-      packages=['live_stream'],
-      zip_safe=False)
+setup(name='livestream',
+    version='0.4',
+    description='Monitors a Youtube live stream',
+    url='https://github.com/mcallb/live_stream',
+    author='Brian McAllister',
+    author_email='mcallb@gmail.com',
+    license='MIT',
+    packages=['live_stream'],
+    zip_safe=False,
+    install_requires = ['retrying','google-api-python-client','oauth2client','httplib2'],
+    scripts = ["cli/main"])

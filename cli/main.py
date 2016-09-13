@@ -1,7 +1,7 @@
-#!/usr/bin/python
-
-from xively import Xively
-from getstream import GetStream
+#!/usr/bin/env python
+import live_stream
+from live_stream.xively import Xively
+from live_stream.getstream import GetStream
 import threading
 
 def main():
@@ -11,4 +11,4 @@ def main():
     status = mySearch.stream_status()
     myXively.send_request(status)
 
-main()
+live_stream.main()

@@ -1,5 +1,6 @@
 import requests
 import json
+from retrying import retry
 
 class Xively():
     def __init__(self):
@@ -27,10 +28,9 @@ class Xively():
         return json_data
 
     # Put the request
+    @retry(wait_exponential_multiplier=1000, wait_exponential_max=10000, stop_max_delay=30000)
     def send_request(self,status):
-
         json_data = self.create_json(status)
-
         try:
             r = requests.put(url=self.xively_endpoint,headers=self.header,data=json_data)
             r.raise_for_status()

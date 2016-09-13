@@ -4,7 +4,7 @@ from retrying import retry
 
 class Xively():
     def __init__(self):
-        self.file_name = ".config/xively.json"
+        self.file_name = "xively.json"
         self.header = self._load_api_key()
         self.xively_endpoint = 'https://api.xively.com/v2/feeds/727218522'
 

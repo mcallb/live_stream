@@ -11,4 +11,4 @@ def main():
     status = mySearch.stream_status()
     myXively.send_request(status)
 
-live_stream.main()
+main()

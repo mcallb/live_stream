@@ -12,7 +12,7 @@ from oauth2client.tools import argparser, run_flow
 
 
 class GoogleConnection():
-    def __init__(self):
+    def __init__(self,filename):
 
 
         # The CLIENT_SECRETS_FILE variable specifies the name of a file that contains
@@ -25,7 +25,8 @@ class GoogleConnection():
         #   https://developers.google.com/youtube/v3/guides/authentication
         # For more information about the client_secrets.json file format, see:
         #   https://developers.google.com/api-client-library/python/guide/aaa_client_secrets
-        self.CLIENT_SECRETS_FILE = "client_secrets.json"
+        self.CLIENT_SECRETS_FILE = filename
+        #self.CLIENT_SECRETS_FILE = "/home/brian/.local/bin/client_secret.json"
 
         # This OAuth 2.0 access scope allows for read-only access to the authenticated
         # user's account, but not other types of account access.
@@ -72,5 +73,5 @@ class GoogleConnection():
 
 if __name__ == "__main__":
     #args = argparser.parse_args()
-    youtube = GoogleConnection()
+    youtube = GoogleConnection('/home/brian/.credentials/client_secrets.json')
     print youtube.get_authenticated_service()

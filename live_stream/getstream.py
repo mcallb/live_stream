@@ -3,9 +3,9 @@ from retrying import retry
 from connection import GoogleConnection
 
 class GetStream():
-    def __init__(self):
+    def __init__(self,filename):
         # Create a connection to the google api
-        self.youtube = GoogleConnection().youtube
+        self.youtube = GoogleConnection(filename).youtube
         self.channel_id = "UCe3yFIa92jfAHEu4Ql4u69A"
 
     # Issue a search for a live video event on the users channel

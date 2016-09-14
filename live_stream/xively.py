@@ -3,8 +3,8 @@ import json
 from retrying import retry
 
 class Xively():
-    def __init__(self):
-        self.file_name = "xively.json"
+    def __init__(self,filename):
+        self.file_name = filename
         self.header = self._load_api_key()
         self.xively_endpoint = 'https://api.xively.com/v2/feeds/727218522'
 
@@ -38,5 +38,5 @@ class Xively():
             print e
 
 if __name__ == "__main__":
-    x = Xively()
+    x = Xively('/home/brian/.credentials/xively.json')
     x.send_request("down")

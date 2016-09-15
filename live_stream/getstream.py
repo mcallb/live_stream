@@ -35,7 +35,5 @@ class GetStream():
                         return "up"
 
 if __name__ == "__main__":
-    myStream=GetStream()
+    myStream=GetStream('/home/brian/.credentials/client_secrets.json')
     myStream.stream_status()
-
-

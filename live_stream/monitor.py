@@ -24,7 +24,7 @@ if __name__ == '__main__':
                     required=True)
     parser.add_argument('-x', '--xively_secret', help='The fully qualified path to your xively api client_secret.json',
                     required=True)
-    args=parser.parse_args(['--client_secret', '/home/pi/.credentials/client_secrets.json', '--xively_secret', '/home/pi/.credentials/xively.json'])
 
+    args=parser.parse_args()
     mon=Monitor()
     mon.run()

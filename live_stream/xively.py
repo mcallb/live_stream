@@ -38,5 +38,5 @@ class Xively():
             print e
 
 if __name__ == "__main__":
-    x = Xively('/home/brian/.credentials/xively.json')
+    x = Xively()
     x.send_request("down")

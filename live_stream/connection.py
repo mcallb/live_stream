@@ -73,5 +73,5 @@ class GoogleConnection():
 
 if __name__ == "__main__":
     #args = argparser.parse_args()
-    youtube = GoogleConnection('/home/brian/.credentials/client_secrets.json')
+    youtube = GoogleConnection()
     print youtube.get_authenticated_service()

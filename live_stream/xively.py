@@ -1,17 +1,19 @@
 import requests
 import json
 from retrying import retry
+from credstash import getSecret
 
 class Xively():
-    def __init__(self,filename):
-        self.file_name = filename
+    def __init__(self):
+        #self.file_name = filename
         self.header = self._load_api_key()
         self.xively_endpoint = 'https://api.xively.com/v2/feeds/727218522'
 
-    # Load xively api key from file
+    # Load xively api key from encrypted table in dynamodb and create the header
+    # getSecret is a method on the credstash class that returns the credential
+    # for the xively api key
     def _load_api_key(self):
-        with open(self.file_name) as api_key:
-            header = json.load(api_key)
+        header = {"X-ApiKey": getSecret('xively-key')}
         return header
 
     # Create the data for the request
@@ -36,6 +38,13 @@ class Xively():
             r.raise_for_status()
         except requests.exceptions.HTTPError as e:
             print e
+
+# Entry point for an aws lambda function. Pass in the value "up" or "down" as a dictionary
+def lambda_handler(event, context):
+    x = Xively()
+    print "Sending the request: %s" % event['status']
+    x.send_request(event['status'])
+
 
 if __name__ == "__main__":
     x = Xively()

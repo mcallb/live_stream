@@ -9,5 +9,5 @@ setup(name='livestream',
     license='MIT',
     packages=['live_stream'],
     zip_safe=False,
-    install_requires = ['retrying','google-api-python-client','oauth2client','httplib2','requests','argparse'],
+    install_requires = ['retrying','google-api-python-client','oauth2client','httplib2','requests','argparse', 'credstash'],
     scripts = ["live_stream/monitor.py"])

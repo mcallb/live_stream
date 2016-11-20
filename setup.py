@@ -10,4 +10,4 @@ setup(name='livestream',
     packages=['live_stream'],
     zip_safe=False,
     install_requires = ['retrying','google-api-python-client','oauth2client','httplib2','requests','argparse'],
-    scripts = ["live_stream/monitor.py"])
+    scripts = ["live_stream/monitor.py",])

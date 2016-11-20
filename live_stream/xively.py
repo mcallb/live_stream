@@ -2,7 +2,7 @@ import requests
 import json
 from retrying import retry
 
-class Xively():
+class Xively(object):
     def __init__(self,filename):
         self.file_name = filename
         self.header = self._load_api_key()
